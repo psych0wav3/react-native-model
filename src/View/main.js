@@ -15,26 +15,17 @@ import {
 
 export default function Main({navigation}) {
 
-  const[admin, setAdmin] = useState(false)
-  const[compras, setCompras] = useState(false)
-  const[controladoria, setControladoria] = useState(false)
-  const[dp, setDp] = useState(false)
-  const[financeiro, setFinanceiro] = useState(false)
-  const[logistica, setLogistica] = useState(false)
-  const[rh, setRH] = useState(false)
-  const[vendas, setVendas] = useState(false)
+  const[access, setAccess] = useState("")
+  
 
 
-   useEffect(()=>{
-     async function parseToken(){
-       var token = await AsyncStorage.getItem('jwt')
-       token  = token.split(".")
-       token = base64.decode(token[1]) 
-       token = JSON.parse(token)
-      
-       if(token.access == "admin"){
-         setAdmin(true)
-        } 
+  useEffect(()=>{
+    async function parseToken(){
+      var token = await AsyncStorage.getItem('jwt')
+      token  = token.split(".")
+      token = base64.decode(token[1]) 
+      token = JSON.parse(token)
+      setAccess(token) 
     }
      parseToken()
   },[])
@@ -53,9 +44,7 @@ export default function Main({navigation}) {
           <Text style={styles.outText}>Sair</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>
-        {admin && <Admin navigation={navigation} />}
-      </ScrollView>
+      <Admin style={styles.access} />
     </>
   )
 }
@@ -88,5 +77,8 @@ const styles = StyleSheet.create({
     fontSize:16,
     color:"#26247b"
   }, 
+  access:{
+    width:"100%",
+  }
 })
 

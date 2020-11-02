@@ -10,7 +10,7 @@ import Milvus from './View/milvus'
 import EpedLog from './View/epedLog'
 import EpedCompras from './View/epedCompras'
 import Blip from './View/blipApp'
-import RouteComponent from './components/RouteComponent'
+
 
 const Stack = createStackNavigator();
 
@@ -62,17 +62,6 @@ function App() {
               fontWeight: 'bold',
             }
           }} name="Biblioteca Conibase" component={Library} 
-        />
-
-        <Stack.Screen options={{
-            headerStyle:{
-              backgroundColor: 'rgb(168,5,18)'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle:{
-              fontWeight: 'bold',
-            }
-          }} name="RouteComponent" component={RouteComponent} 
         />
 
         <Stack.Screen options={{
