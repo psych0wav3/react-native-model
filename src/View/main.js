@@ -3,6 +3,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import base64 from 'base-64'
 import Logout from '../assets/logout.png'
 import Admin from '../components/Admin'
+import Shopping from '../components/compras'
+import Logistics from '../components/logistics'
+
 import { 
   ScrollView, 
   View, 
