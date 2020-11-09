@@ -11,30 +11,29 @@ import portal from '../assets/portal.png'
 
 const Admin = () => {
   return(
-    <ScrollView style={styles.scroll}>
-    <View style={styles.view}>
-      <Card style={styles.card} image={gixCompras} route="EPED Compras" height='22%' />
-      <Card style={styles.card} image={library} route="Biblioteca Conibase" height='22%' />
-      <Card style={styles.card} image={contact} route="Contatos Conibase" height='22%' />
-      <Card style={styles.card} image={gixLogistica} route="EPED Logística" height='22%' />
-      <Card style={styles.card} image={ead} link="https://conibase.elore.com.br" height='22%' />
-      <Card style={styles.card} image={setting} route="Configurações" height='22%'  />
-      <Card style={styles.card} image={portal} route="Portal Milvus" height='22%' />
-    </View>
+    <ScrollView contentContainerStyle={styles.scroll}>
+    
+      <Card  image={gixCompras} route="EPED Compras" height='5%' />
+      <Card  image={library} route="Biblioteca Conibase" height='5%' />
+      <Card  image={contact} route="Contatos Conibase" height='5%' />
+      <Card  image={gixLogistica} route="EPED Logística" height='5%' />
+      <Card  image={ead} link="https://conibase.elore.com.br" height='5%' />
+      <Card  image={setting} route="Configurações" height='5%'  />
+      <Card  image={portal} route="Portal Milvus" height='5%' />
+    
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  view:{
+  scroll:{
     flexDirection:'row',
     flexWrap:'wrap',
-    backgroundColor:'white',
+    justifyContent:'space-around',
+    alignItems:'center',
+    backgroundColor:'white'
   },
-  scroll:{
-    backgroundColor:'blue',
-    height:"100%",
-  }
+  
 })
 
 export default Admin

@@ -1,17 +1,15 @@
 import React,{ useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-community/async-storage';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import base64 from 'base-64'
-import Logout from '../assets/logout.png'
 import Admin from '../components/Admin'
 import Shopping from '../components/compras'
 import Logistics from '../components/logistics'
 
 import { 
-  ScrollView, 
   View, 
-  TouchableOpacity, 
-  Image, 
   Text,
+  TouchableOpacity,
   StyleSheet  
 } from 'react-native'
 
@@ -21,7 +19,6 @@ export default function Main({navigation}) {
   const[access, setAccess] = useState("")
   
 
-
   useEffect(()=>{
     async function parseToken(){
       var token = await AsyncStorage.getItem('jwt')
@@ -29,6 +26,7 @@ export default function Main({navigation}) {
       token = base64.decode(token[1]) 
       token = JSON.parse(token)
       setAccess(token) 
+      console.log(access)
     }
      parseToken()
   },[])
@@ -42,12 +40,12 @@ export default function Main({navigation}) {
   return (
     <>
       <View style={styles.header}>
+        
         <TouchableOpacity style={styles.touch} onPress={logout}>
-          <Image source={Logout} style={styles.logoutImage}></Image>
-          <Text style={styles.outText}>Sair</Text>
+          <Icon name="logout" size={40} color="#26247b" />
         </TouchableOpacity>
       </View>
-      <Admin style={styles.access} />
+  {access.access == "admin" ? <Admin style={styles.access} /> : access.access == "logistica" ? <Logistics style={styles.access} /> : access.access == "compras" ? <Shopping style={styles.access} /> : <Logistics style={styles.access} /> }
     </>
   )
 }
@@ -61,10 +59,6 @@ const styles = StyleSheet.create({
     justifyContent:"flex-end",
     alignItems:"flex-end",
   },
-  logoutImage:{
-    height:20,
-    width:20,
-  },
   touch:{
     display:"flex",
     flexDirection:"row",
@@ -73,15 +67,11 @@ const styles = StyleSheet.create({
     padding:"2%",
     backgroundColor:'white'
   },
-  outText:{
-    fontFamily:"Poppins-Regular",
-    fontWeight:"600",
-    marginLeft:"1%",
-    fontSize:16,
-    color:"#26247b"
-  }, 
   access:{
     width:"100%",
+  },
+  welcome:{
+    fontSize:40
   }
 })
 

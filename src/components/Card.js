@@ -5,10 +5,15 @@ import { useNavigation } from '@react-navigation/native'
 const Card = ({image, route, link, height}) => {
 
   const styles = StyleSheet.create({
+    view:{
+      width:'45%',
+      justifyContent:'space-around',
+      alignItems:'center'
+    },
     touch:{
-      marginTop:'20%',
-      marginLeft:'4%',
-      width:"90%",
+      flexDirection:'column',
+      margin:'2%',
+      width:"100%",
       height:height,
       justifyContent:'center',
       alignItems:'center',
@@ -25,7 +30,7 @@ const Card = ({image, route, link, height}) => {
       elevation: 5,
     },
     img:{
-      width:180,
+      width:'100%',
       resizeMode:'center'
     }
   })
@@ -36,7 +41,7 @@ const Card = ({image, route, link, height}) => {
   
   const Route = () => {
     return(
-      <View>
+      <View style={styles.view}>
         <TouchableHighlight style={styles.touch} onPress={() => navigation.navigate(route)}>
      
         <Image source={image} style={styles.img} />
@@ -48,7 +53,7 @@ const Card = ({image, route, link, height}) => {
 
   const Link = () => {
     return(
-      <View>
+      <View style={styles.view}>
         <TouchableHighlight style={styles.touch} onPress={() => Linking.openURL(link)}>
         <Image source={image} style={styles.img} />
       </TouchableHighlight>
