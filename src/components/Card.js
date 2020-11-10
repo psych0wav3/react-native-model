@@ -6,9 +6,10 @@ const Card = ({image, route, link, height}) => {
 
   const styles = StyleSheet.create({
     view:{
-      width:'45%',
+      width:'30%',
       justifyContent:'space-around',
-      alignItems:'center'
+      alignItems:'center',
+      marginLeft:'2.5%'
     },
     touch:{
       flexDirection:'column',

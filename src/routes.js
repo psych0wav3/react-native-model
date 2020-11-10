@@ -11,9 +11,10 @@ import Milvus from './View/milvus'
 import EpedLog from './View/epedLog'
 import EpedCompras from './View/epedCompras'
 import Settings from './View/settings'
+import RH from './View/portalRh'
+import Panda from './View/panda'
 
 const Stack = createStackNavigator();
-
 function App() {
   return (
     <NavigationContainer>
@@ -108,6 +109,30 @@ function App() {
               fontWeight: 'bold',
             }
           }} name="Configurações" component={Settings} 
+        />
+
+        <Stack.Screen options={{
+          headerShown: false,
+            headerStyle:{
+              backgroundColor: '#255892'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle:{
+              fontWeight: 'bold',
+            }
+          }} name="RH" component={RH} 
+        />
+
+        <Stack.Screen options={{
+          headerShown: false,
+            headerStyle:{
+              backgroundColor: '#255892'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle:{
+              fontWeight: 'bold',
+            }
+          }} name="Panda" component={Panda} 
         />
       </Stack.Navigator>
     </NavigationContainer>

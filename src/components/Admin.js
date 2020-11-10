@@ -8,30 +8,34 @@ import ead from '../assets/ead.png'
 import setting from '../assets/settings.png'
 import contact from '../assets/contact.png'
 import portal from '../assets/portal.png'
+import panda from '../assets/panda.png'
+import rh from '../assets/portalRh.png'
+
 
 const Admin = () => {
   return(
-    <ScrollView contentContainerStyle={styles.scroll}>
-    
-      <Card  image={gixCompras} route="EPED Compras" height='5%' />
-      <Card  image={library} route="Biblioteca Conibase" height='5%' />
-      <Card  image={contact} route="Contatos Conibase" height='5%' />
-      <Card  image={gixLogistica} route="EPED Logística" height='5%' />
-      <Card  image={ead} link="https://conibase.elore.com.br" height='5%' />
-      <Card  image={setting} route="Configurações" height='5%'  />
-      <Card  image={portal} route="Portal Milvus" height='5%' />
-    
-    </ScrollView>
+    <View style={styles.view}>
+      <Card  image={gixCompras} route="EPED Compras" height='20%' />
+      <Card  image={gixLogistica} route="EPED Logística" height='20%' />
+      <Card  image={library} route="Biblioteca Conibase" height='20%' />
+      <Card  image={contact} route="Contatos Conibase" height='20%' />
+      <Card  image={ead} link="https://conibase.elore.com.br" height='20%' />
+      <Card  image={portal} route="Portal Milvus" height='20%' />
+      <Card  image={panda} route="Panda" height='20%' />
+      <Card  image={rh} route="RH" height='20%' />
+      <Card  image={setting} route="Configurações" height='20%'  />
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  scroll:{
+  view:{
     flexDirection:'row',
-    flexWrap:'wrap',
-    justifyContent:'space-around',
+    justifyContent:'flex-start',
     alignItems:'center',
-    backgroundColor:'white'
+    flexWrap:'wrap',
+    backgroundColor:'white',
+    height:'100%'
   },
   
 })
